@@ -1,0 +1,28 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /${spring.application.name}
+spring:
+  application:
+    name: api-gmf-configservice
+  cloud:
+    nacos:
+      discovery:
+        serverAddr: 127.0.0.1:8848
+        register-enabled: false
+  datasource:
+    url:  jdbc:postgresql://192.168.1.72:5432/agriresource
+    username: postgres
+    password: postgresql
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  level:
+    #打印SQL信息
+    com.grandtech.gmf.service.dao: debug
